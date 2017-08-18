@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>266 Sum all numbers in a range</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function sumAll(arr) {
+		var max = Math.max.apply(null, arr);
+		var min = Math.min.apply(null, arr);
+
+		var newArr = [];
+		for (var i = max; i > min - 1; i--) {
+			newArr.push(i);
+		}
+
+		console.log(newArr);
+		var sum = newArr.reduce(function (a, b) {
+			return a + b;
+		}, 0);
+		console.log("sum ", sum);
+		return sum;
+	}
+
+	sumAll([10, 5]);
+
+</script>
+</body>
+</html>
