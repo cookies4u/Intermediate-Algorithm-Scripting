@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>266 Diff two arrays</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	function diffArray(arr1, arr2) {
+		
+		var newArr = [];
+
+		var long = arr1.concat(arr2);
+		long = long.sort();
+		console.log('long ', long);
+
+		for (var i = 0; i < long.length; i++) {
+			if (long[i] === long[i + 1]) {
+				console.log('dup');
+				i = i + 1;
+			} else {
+				newArr.push(long[i]);
+			}
+		}
+
+		console.log('newArr ', newArr);
+
+		return newArr;
+	}
+
+	var a = diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+	console.log(a);
+	var b = diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]);
+	console.log(b);
+</script>
+
+
+</body>
+</html>
