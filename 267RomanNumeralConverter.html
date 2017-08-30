@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>267 Roman numeral converter</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function convertToRoman(num) {
+		// step 1: break out number
+		// test 1234 should return 1000 200 30 4
+		num = num.toString();
+		var numLength = num.length - 1;
+		var numToConvert;
+		var romeNum = '';
+
+		console.log('num.length ', num.length);
+
+		// for new array
+		for (var i = 0; i < num.length; i++) {
+			
+			console.log(num[i] + ('0'.repeat(numLength) ));
+			numToConvert = num[i] + ( '0'.repeat(numLength) );
+			console.log('numToConvert ', numToConvert);
+			numToConvert = parseInt(numToConvert);
+			
+			if (numToConvert >= 1000 ) {
+				console.log('im in 1k and above');
+				romeNum += 'M'.repeat(num[i]);
+			}
+			else {
+
+				numToConvert = numToConvert.toString();
+				console.log('num[i]', num[i]);
+				if (num[i] === '9') {
+					console.log('im in 9');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'CM'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'XC'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'IX'; }
+				}
+				if (num[i] === '8') {
+					console.log('im in 8');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'DCCC'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'LXXX'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'VIII'; }
+				}
+				if (num[i] === '7') {
+					console.log('im in 7');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'DCC'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'LXX'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'VII'; }
+				}
+				if (num[i] === '6') {
+					console.log('im in 6');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'DC'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'LX'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'VI'; }
+				}
+				if (num[i] === '5') {
+					console.log('im in 5');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'D'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'L'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'V'; }
+				}
+				if (num[i] === '4') {
+					console.log('im in 4');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'CD'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'XL'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'IV'; }
+				}
+				if (num[i] === '3') {
+					console.log('im in 3');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'CCC'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'XXX'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'III'; }
+				}
+				if (num[i] === '2') {
+					console.log('im in 2');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'CC'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'XX'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'II'; }
+				}
+				if (num[i] === '1') {
+					console.log('im in 1');
+					if (numToConvert.length - 1 === 2 ) { romeNum += 'C'; }
+					if (numToConvert.length - 1 === 1) { romeNum += 'X'; }
+					if (numToConvert.length - 1 === 0) { romeNum += 'I'; }
+				}
+				if (num[i] === '0') {
+					console.log('im in 0');
+					romeNum += '';
+				}
+			}
+			numLength--;
+			console.log('xxxxxxxxxxxxxxxxxxxxxxxx');
+		}
+
+		console.log(romeNum);
+		return romeNum;
+	}
+
+convertToRoman(36);
+
+function convertToRomanII(num) {
+  var result = "";
+  var arabic = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  var roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  
+  for (var i = 0; i < arabic.length; i++) {
+    while(num >= arabic[i]) {
+      result += roman[i];
+      num -= arabic[i];
+    }
+  }
+  
+  return result;
+}
+
+
+
+</script>
+</body>
+</html>
