@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>269 Search and replace</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	function checkCase(word) {
+		if (word === word.charAt(0).toUpperCase() + word.slice(1)) {
+			return 'upperCase';
+		}
+	}
+
+	function myReplace(str, before, after) {
+		var arr = str.split(' ');
+		console.log('arr ', arr);
+
+		var indexArr = arr.indexOf(before);
+		console.log('indexArr ', indexArr);
+
+		if (checkCase(before) === 'upperCase') {
+			after = after.charAt(0).toUpperCase() + after.slice(1);
+			arr[indexArr] = after;
+			str = arr.join(" ");
+		} else {
+			arr[indexArr] = after;
+			str = arr.join(" ");
+		}
+
+		console.log('str: ', str);
+
+		return str;
+	}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+</script>
+</body>
+</html>
