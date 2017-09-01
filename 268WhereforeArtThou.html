@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>268 Wherefore art thou</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+	function whatIsInAName(collection, source) {
+
+		var arr = [];
+		var sourceKey = Object.keys(source);
+		console.log('sourceKey ', sourceKey);
+		var sourceVal = Object.values(source);
+		console.log('sourceVal ', sourceVal);
+		var bolCheck;
+		var j = 0;
+
+		while (j < collection.length) {
+			for (var i = 0; i < sourceKey.length; i++) {
+				bolCheck = collection[j].hasOwnProperty(sourceKey[i]);
+				console.log(bolCheck);
+				if ( bolCheck === false) { break; }
+				if (Object.values(collection[j]).indexOf(sourceVal[i]) === -1) {
+					bolCheck = false;
+					break;
+				}
+			}
+			console.log('bolCheck ', bolCheck);
+			if (bolCheck === true) {
+				arr.push(collection[j]);
+			}
+			j++;
+		}
+		
+		console.log('arr ', arr);
+		return arr;
+	}
+
+	whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+</script>
+
+</body>
+</html>
