@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>270 Pig latin</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function isVowel(word, index) {
+		switch(word.charAt(index)) {
+			case 'a':
+			case 'e':
+			case 'i':
+			case 'o':
+			case 'u':
+			return 'vowel';
+			default:
+			return 'consonant';
+		}
+	}
+
+	function translatePigLatin(str) {
+		var a;
+		var j = 0;
+		var i = 0;
+
+		while (i === 0) {
+			a = isVowel(str, 0);
+			console.log('is vowel? ', a);
+
+			if ( j === 0 && a === 'vowel') {
+				str = str + 'way';
+				break;
+			} else if (a === 'vowel') {
+				str += 'ay';
+				break;
+			} else {
+				str += str.charAt(0);
+				console.log('moved to end ', str);
+				str = str.substr(1);
+				console.log('removing lead ', str);
+				j++;
+			}
+
+		}
+
+		console.log('str ', str);
+		return str;
+	}
+
+translatePigLatin("consonant");
+
+
+</script>
+</body>
+</html>
