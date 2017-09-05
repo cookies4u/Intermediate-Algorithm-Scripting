@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>271 DNA pairing</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function dnaChecker(word, index) {
+		switch(word.charAt(index)) {
+			case 'A':
+			return 'T';
+			case 'T':
+			return 'A';
+			case 'C':
+			return 'G';
+			case 'G':
+			return 'C';
+			default:
+			return 'not DNA';
+		}
+	}
+
+	function pairElement(str) {
+		var final = [];
+		
+
+		console.log('returned ', dnaChecker(str, 1));
+
+		for (var i = 0; i < str.length; i++) {
+			var pairArr = [];
+			pairArr.push(str[i]);
+			console.log('pairArr push 1 ', pairArr);
+			
+			pairArr.push(dnaChecker(str, i));
+			console.log('pairArr push 2 ', pairArr);
+
+			final.push(pairArr);
+			
+
+		}
+
+		console.log('final ', final);
+		return final;
+
+	}
+
+	pairElement('GCG');
+</script>
+
+</body>
+</html>
