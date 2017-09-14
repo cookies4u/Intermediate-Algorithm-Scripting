@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>272 Missing letters</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function fearNotLetter(str) {
+
+		// string test //
+		// console.log(str[0].charCodeAt()); // 97
+		// console.log(String.fromCharCode(97)); // a
+
+		// check if characters consecutive
+		for (var i = 0; i < str.length; i++) {
+			// if make it through entire loop with consecutive numbers
+			if (i === str.length - 1) { return undefined;}
+			// is the charCode + one equal to the next characters charCode
+			if( str[i].charCodeAt() + 1 !== str[i+1].charCodeAt() ) {
+				// setting str equal to the next consecutive character
+				str = str[i].charCodeAt() + 1;
+				str = String.fromCharCode(str);
+				return str;
+			}	
+		}
+
+	}
+
+	fearNotLetter("abce");
+
+</script>
+
+</body>
+</html>
