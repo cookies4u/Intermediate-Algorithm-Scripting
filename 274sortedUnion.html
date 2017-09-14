@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>274 Sorted Union</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function uniteUnique(arr) {
+		// add arrays within new array
+		// example found in mdn web docs under 'Using the Spread Syntax with Arguments'
+		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
+		arr = Array.from(arguments); 
+		// new array with unique values only 
+		var newArr = [];
+		for (var i = 0; i < arr.length; i++) { // loop through parent array created above
+			for (var j = 0; j < arr[i].length; j++) { // loop through the individual 'original arrays'
+				if ( newArr.indexOf(arr[i][j]) === -1 ) { // if value doesn't exist in new array
+					newArr.push(arr[i][j]);	 // adding unique item to new array
+				}
+			}
+		}
+
+		return newArr;
+	}
+
+	uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+	
+</script>
+
+</body>
+</html>
