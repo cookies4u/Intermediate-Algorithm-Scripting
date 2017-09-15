@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>275 Convert HTML entities</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+	function convertHTML(str) {
+
+		// &colon;&rpar; // where gi is global
+		str = str.replace(/&/gi, '&amp;'); 
+		str = str.replace(/</gi, '&lt;');
+		str = str.replace(/>/gi, '&gt;');
+		str = str.replace(/"/gi, '&quot;');
+		str = str.replace(/'/gi, '&apos;');
+		console.log('str: ', str);
+
+		return str;
+
+	}
+
+	convertHTML("Dolce & Gabbana");
+
+</script>
+
+</body>
+</html>
