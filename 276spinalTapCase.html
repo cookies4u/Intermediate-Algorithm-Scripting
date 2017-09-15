@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>276 Spinal tap case</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function spinalCase(str) {
+		// "It's such a fine line between stupid, and clever."
+		// --David St. Hubbins
+
+		// looking for capitalized letters and lower case letters with a leading space
+		for (var i = 1; i < str.length; i++) {
+			if (/[A-Z]/.test(str[i]) || (str[i] === ' ' && /[a-z]/.test(str[i+1]) && i < str.length-1) ) {
+				str = str.slice(0, i) + '-' + str.slice(i); // adding a dash before letter meeting condition
+				i++; // the length of the string increased thus moving to the next letter
+			}
+		}
+		str = str.toLowerCase();
+		str = str.replace( /[^a-z\-]/gi, ''); // removing any special characters not a dash
+		
+		return str;
+	}
+
+	spinalCase('This Is Spinal Tap');
+
+</script>
+
+</body>
+</html>
