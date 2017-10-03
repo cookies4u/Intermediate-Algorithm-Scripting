@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>278 Sum all primes</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function primes(num) {
+	    // Eratosthenes algorithm to find all primes under n
+	    num = num +1; // want to also check and include it give number prime
+	    var array = [], upperLimit = Math.sqrt(num), output = [];
+
+	    console.log('upperLimit ', upperLimit);
+	    // Make an array from 2 to (n - 1) // each element in the array will return true
+	    for (var i = 0; i < num; i++) {
+	        array.push(true); // array of trues
+	        // console.log('array for1 ', array);
+	    }
+
+	    // Remove multiples of primes starting from 2, 3, 5,...
+	    for ( i = 2; i <= upperLimit; i++) {
+	        console.log('i xxxxxxxxxxxxxxx', i);
+	        console.log('array[i]', array[i]);
+	        if (array[i]) {
+	            for (var j = i * i; j < num; j += i) {
+	                console.log('j: ', j, 'i: ', i);
+	                array[j] = false;
+	                console.log('array for2 ', array);
+	            }
+	        }
+	    }
+
+	    // All array[i] set to true are primes
+	    for ( i = 2; i < num; i++) {
+	        if(array[i]) {
+	            console.log('i for3 ', i);
+	            output.push(i);
+	        }
+	    }
+	    console.log(output);
+	    return output;
+	}
+
+	function sumPrimes(num) {
+	    var sum = 0;
+	    var primeNums = primes(num);
+	    console.log('primeNums ', primeNums);
+	    for (var i = 0; i < primeNums.length; i++) {
+	        sum += primeNums[i];
+	        console.log(sum);
+	    }
+	    console.log(sum);
+	    return sum;
+	}
+
+	sumPrimes(10);
+
+	/*
+
+	Sum All Primes
+	Sum all the prime numbers up to and including the provided number.
+
+	A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+
+	The provided number may not be a prime.
+
+	sumPrimes(10) should return a number.
+	sumPrimes(10) should return 17.
+	sumPrimes(977) should return 73156.
+
+	-----------------------------------------------
+	Let's say m = sqrt(n) then m × m = n. Now if n is not a prime then n can be written as n = a × b, so m × m = a × b. Notice that m is a real number whereas n, a and b are natural numbers.
+
+	Now there can be 3 cases:
+
+	a > m ⇒ b < m
+	a = m ⇒ b = m
+	a < m ⇒ b > m
+	In all 3 cases, min(a, b) ≤ m. Hence if we search till m, we are bound to find at least one factor of  n, which is enough to show that n is not prime.
+
+	*/
+
+	
+</script>
+
+</body>
+</html>
